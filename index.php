@@ -25,7 +25,7 @@
 	$my_sql_conn =  new mysqli($servername,$user,$pwd,$db);
 
     $fechas = array();
-    $result = $my_sql_conn->query("select dia_entrada as dia, count(*) as empleados from horario group by dia_entrada");
+    $result = $my_sql_conn->query("select dia_entrada as dia, count(*) as empleados from horario where dia_entrada>='2015-12-12' group by dia_entrada");
 
     while($rs = $result->fetch_array(MYSQLI_ASSOC)){
       $fechas[$rs['dia']] = $rs['empleados']; 
